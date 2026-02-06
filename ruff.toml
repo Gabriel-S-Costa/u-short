@@ -1,11 +1,12 @@
 line-length = 160
 
 [lint]
-select = ["E501", "I"]
+select = ["E", "F", "I"]
+ignore = ["E501", "E101"]
 
 [format]
 quote-style = "single"
-indent-style = "tab"
+indent-style = "space"
 
 docstring-code-format = true
 docstring-code-line-length = 72

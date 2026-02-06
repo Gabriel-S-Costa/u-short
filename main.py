@@ -5,4 +5,4 @@ app = FastAPI()
 
 @app.get('/')
 async def heath_checker():
-	return {'message': 'I am alive'}
+    return {'message': "I'm Alive."}
