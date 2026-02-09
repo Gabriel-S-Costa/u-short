@@ -1,5 +1,5 @@
 dev-up:
-	fastapi dev main.py
+	fastapi dev app/main.py
 
 check:
 	ruff check && ruff format
