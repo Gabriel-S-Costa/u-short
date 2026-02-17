@@ -1,9 +1,18 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
+
+from app.core.database import db
 
 from .routers import login
 
-app = FastAPI()
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    yield db.create_db_and_tables()
+
+
+app = FastAPI(lifespan=lifespan)
 
 app.include_router(login.router)
 
