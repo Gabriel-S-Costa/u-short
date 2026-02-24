@@ -1,6 +1,16 @@
 # Objetivo
 
-- 
+Desenvolver uma API para gerenciar links curtos. Utilizando as melhores práticas de arquitetura de software, com foco em DDD e Clean Architecture.
+
+## Tecnologias
+
+- Python 3.14
+- FastAPI
+- Uv
+- Ruff
+- Pydantic
+- Alembic
+- SQLModel
 
 ## Estrutura do projeto
 
