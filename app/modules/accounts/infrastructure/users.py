@@ -1,23 +1,17 @@
+import uuid
 from datetime import datetime
 
-from pydantic import BaseModel
-from sqlmodel import Field
+from sqlmodel import Field, SQLModel
 
 
-class User(BaseModel):
+class User(SQLModel, table=True):
+    __tablename__ = 'users'
+
     id: int | None = Field(primary_key=True, unique=True, default=None)
+    code: uuid.UUID = Field(default_factory=uuid.uuid4, index=True, unique=True)
     created_at: datetime | None = Field(default=None)
     updated_at: datetime | None = Field(default=None)
     deleted_at: datetime | None = Field(default=None)
     name: str = Field(max_length=255)
-    email: str = Field(max_length=255)
+    email: str = Field(max_length=255, index=True, unique=True)
     is_active: bool = Field(default=True)
-
-
-class UserRequest(BaseModel):
-    name: str
-    email: str
-
-
-class UserResponse(BaseModel):
-    id: str
