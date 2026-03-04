@@ -7,11 +7,12 @@ from sqlmodel import Field, SQLModel
 class User(SQLModel, table=True):
     __tablename__ = 'users'
 
-    id: int | None = Field(primary_key=True, unique=True, default=None)
+    id: int | None = Field(primary_key=True, default=None)
     code: uuid.UUID = Field(default_factory=uuid.uuid4, index=True, unique=True)
     created_at: datetime | None = Field(default=None)
     updated_at: datetime | None = Field(default=None)
     deleted_at: datetime | None = Field(default=None)
     name: str = Field(max_length=255)
     email: str = Field(max_length=255, index=True, unique=True)
+    password: str = Field(max_length=255)
     is_active: bool = Field(default=True)
