@@ -4,6 +4,9 @@ line-length = 160
 select = ["E", "F", "I"]
 ignore = ["E501", "E101"]
 
+[lint.isort]
+known-first-party = ["app"]
+
 [format]
 quote-style = "single"
 indent-style = "space"
